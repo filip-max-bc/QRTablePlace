@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,6 @@
     overflow-x: hidden;
   }
 
-  /* Decorative background */
   body::before {
     content: '';
     position: fixed;
@@ -68,7 +67,6 @@
     align-items: center;
   }
 
-  /* Ornamental line */
   .ornament {
     display: flex;
     align-items: center;
@@ -135,7 +133,6 @@
     opacity: 0.6;
   }
 
-  /* Search area */
   .search-area {
     width: 100%;
     margin-bottom: 36px;
@@ -195,7 +192,6 @@
     opacity: 0.3;
   }
 
-  /* Results */
   .result {
     width: 100%;
     text-align: center;
@@ -284,7 +280,6 @@
     opacity: 0.8;
   }
 
-  /* No match */
   .no-match {
     width: 100%;
     text-align: center;
@@ -300,7 +295,6 @@
     opacity: 0.5;
   }
 
-  /* Suggestions dropdown */
   .suggestions {
     position: absolute;
     top: 100%;
@@ -346,7 +340,6 @@
     margin-top: 4px;
   }
 
-  /* Footer */
   .footer {
     margin-top: auto;
     padding-top: 48px;
@@ -390,21 +383,21 @@
   </div>
 
   <div class="header">
-    <div class="subtitle">The Wedding of</div>
+    <div class="subtitle">Casatorie</div>
     <h1>Filip</h1>
     <span class="ampersand">&</span>
     <h1>Raluca</h1>
-    <div class="date-text">15 · 08 · 2026</div>
+    <div class="date-text">26 · 04 · 2026</div>
   </div>
 
   <div class="search-area">
-    <label class="search-label" for="guestSearch">Enter your name</label>
+    <label class="search-label" for="guestSearch">Introdu numele tău</label>
     <div class="search-wrapper">
       <input
         type="text"
         id="guestSearch"
         class="search-input"
-        placeholder="e.g. Maria Popescu"
+        placeholder="ex. Popescu Maria"
         autocomplete="off"
         spellcheck="false"
       >
@@ -418,35 +411,72 @@
   <div id="resultArea"></div>
 
   <div class="footer">
-    <div class="footer-text">We can't wait to celebrate with you</div>
+    <div class="footer-text">Abia așteptăm să sărbătorim împreună</div>
   </div>
 </div>
 
 <script>
 // ============================================================
-//  GUEST DATA — Edit this section with your real guest list
-//  Format: { name: "Guest Name", table: tableNumber }
-//  Tables also have optional names defined below.
+//  GUEST DATA - Filip & Raluca - 240 invitați, 24 mese + Prezidiu
 // ============================================================
 const TABLES = {
-  1:  { name: "Rose",      guests: ["Maria Popescu", "Ion Popescu", "Elena Dumitrescu", "Andrei Dumitrescu", "Lucia Stan", "Vasile Stan", "Cristina Barbu", "Florin Barbu"] },
-  2:  { name: "Lavender",  guests: ["Alexandru Ionescu", "Diana Ionescu", "Mihaela Radu", "George Radu", "Ana-Maria Popa", "Cosmin Popa", "Ioana Munteanu", "Dragoș Munteanu"] },
-  3:  { name: "Olive",     guests: ["Sofia Marinescu", "Tudor Marinescu", "Adriana Gheorghe", "Bogdan Gheorghe", "Raluca Stoica", "Vlad Stoica", "Carmen Toma", "Marius Toma"] },
-  4:  { name: "Peony",     guests: ["Laura Constantin", "Rareș Constantin", "Simona Matei", "Dan Matei", "Alina Voicu", "Ciprian Voicu", "Gabriela Nistor", "Paul Nistor"] },
-  5:  { name: "Eucalyptus",guests: ["Daria Moldovan", "Liviu Moldovan", "Irina Ciobanu", "Ștefan Ciobanu", "Monica Luca", "Adrian Luca", "Teodora Neagu", "Răzvan Neagu"] },
-  6:  { name: "Jasmine",   guests: ["Bianca Dima", "Mihai Dima", "Roxana Ene", "Cristian Ene", "Oana Cojocaru", "Flavius Cojocaru", "Denisa Filip", "Robert Filip"] },
-  7:  { name: "Dahlia",    guests: ["Andreea Sandu", "Victor Sandu", "Patricia Rusu", "Nicolae Rusu", "Mădălina Crișan", "Ionuț Crișan"] },
-  8:  { name: "Magnolia",  guests: ["Silvia Bogdan", "Claudiu Bogdan", "Emilia Dragomir", "Tiberiu Dragomir", "Alexandra Feraru", "Sebastian Feraru"] },
+  "Prezidiu": { guests: ["Paliuc Filip", "Paliuc Raluca"] },
+  1: { guests: ["Cojocari Bogdan", "Curea Alex", "Curea David", "Curea Ovidiu", "Curea Seli", "Jucsor Luci", "Paliuc Razvan", "Petrutescu Adi", "Petrutescu Ica", "Popovici Luci"] },
+  2: { guests: ["Boldea Noemi", "Boldea Relu", "Cojocari Ioana", "Cojocari Liviu", "Curea Amalia", "Curea Lavinia", "Curea Marius", "Halip Flavia", "Halip Silviu", "Jucsor Elian"] },
+  3: { guests: ["Amaria Paul", "Garban Dori", "Paliuc Ana", "Paliuc Angela", "Paliuc Cristi", "Paliuc Liviu", "Paliuc Mimo", "Paliuc Alex", "Pitut Moni", "Trufin Valeriu"] },
+  4: { guests: ["Bodnarescu Denisa", "Bodnarescu Ligi", "Cojocariu Daiana", "Cojocariu Daniel", "Lupastean Emi", "Lupastean Iuli", "Lupastean Maria", "Lupastean Nicu", "Lupastean Rodica", "Puiu Larisa"] },
+  5: { guests: ["Cazacu Costi", "Cazacu Lidia", "Cozarov Carmen", "Cozarov Raul", "Curea Daiana", "Curea Dani", "Curea Daniela", "Curea Dinu", "Curea Radu"] },
+  6: { guests: ["Amaria Mitica", "Amaria Rodica", "Bodnarescu Marcel", "Bodnarescu Nana", "Circa Rave", "Circa Tibi", "Paliuc Iuliana", "Paliuc Nicu", "Paliuc Radu", "Trufin Stela"] },
+  7: { guests: ["Brstiak Cristina", "Brstiak Yoko", "Buzduga Ancuta", "Buzduga Dan", "Cifor Cristina", "Cifor Tinu", "Garban Dani", "Garban Geno", "Mazilu Laura"] },
+  8: { guests: ["Herlinschi Ame", "Herlinschi Ana", "Herlinschi Fabi", "Herlinschi Lidia", "Herlinschi Sever", "Herlinschi Vasile", "Paliuc Carmina", "Paliuc Catalin", "Paliuc Corneliu", "Paliuc Penina"] },
+  9: { guests: ["Curea Ana", "Curea Elena", "Curea Florin", "Curea Marcel", "Curea Sami", "Curea Vergi", "Ichim Dumitru", "Ichim Mita", "Paliuc Dina", "Paliuc Vilu"] },
+  10: { guests: ["Craciun Alex", "Craciun Daria", "Cristea Lavi", "Curea Andrei", "Curea Beniamim", "Curea Ramona", "Menli Hally", "Paliuc Claudia", "Paliuc Dumitru", "Paliuc Flavius", "Paliuc Lari"] },
+  11: { guests: ["Cocian Paul", "Kurunczi Andreea", "Moldovan Amina", "Parvany Ale", "Parvany Levi", "Rusu Emanuel", "Rusu Natalia", "Stoian Vanessa", "Weisz Markus", "Zifceak Andreea"] },
+  12: { guests: ["Bodnarescu Beni", "Bodnarescu Naomi", "Circa Mali", "Ferecean Dorian", "Fulop Flavius", "Fulop Jessi", "Herlinschi Marcus", "Lupulescu Denis", "Mihoc Nicu", "Neda Victor"] },
+  13: { guests: ["Bodnarescu Dani", "Circa Sabin", "Cojocariu David", "Curea Dani", "Garban Seba", "Orga Bogdi", "Orga Raducu", "Pantalici Luca", "Pantea Daniel", "Pantea Irina"] },
+  14: { guests: ["Cantare1", "Cantare2", "Cantare3", "Fotograf1", "Fotograf2", "Inghetata1", "Inghetata2", "Photobooth", "Video1", "Video2"] },
+  15: { guests: ["Carapanceanu Ramona", "Cioanca Alesia", "Cioanca Flavius", "Cioanca Lavi", "Iochim Alex", "Iochim Rebi", "Marc Dana", "Marc Ildi", "Marc Marius", "Marc Tibi", "Stoia Tibi"] },
+  16: { guests: ["Bundurus Crina", "Bundurus Gabriel", "Felvinczi Denis", "Oleniuc Ilie", "Oleniuc Naomi", "Palic Sara", "Trofin Oli", "Trofin Raluca"] },
+  17: { guests: ["Farcas Cosmin", "Farcas Silvi", "Paliuc Octa", "Paliuc Vera", "Pantalici Beja", "Pantalici Marius", "Piscuc Lidi", "Piscuc Liviu", "Piscuc Tudorita"] },
+  18: { guests: ["Dobrei Corina", "Dobrei David", "Dobrei Radu", "Farcas Alex", "Farcas Bogdi", "Farcas Denisa", "Farcas Doina", "Farcas Ionela", "Todorut Maria"] },
+  19: { guests: ["Banceu Flavius", "Cifor Melissa", "Cojocari Laura", "Cojocari Alesia", "Cojocariu Oana", "Curea Denis", "Halip Aisha", "Paliuc Bianca", "Puiu Damian", "Toth Daria"] },
+  20: { guests: ["Karabenciov Clau", "Karabenciov Marian", "Paliuc Iasi", "Paliuc Mircea", "Paliuc Rebe", "Paliuc Sergiu", "Paliuc Tabita", "Paliuc Tibi", "Pantalici Razvan", "Zarcula Ade", "Zarcula Edi"] },
+  21: { guests: ["Cifor Rut", "Curea Ana", "Curea Ema", "Curea Lea", "Curea Rebeca", "Halip Antonia", "Marc Sara", "Marc Sonia", "Paliuc Alma", "Paliuc Tabita"] },
+  22: { guests: ["Brstiak Mati", "Cifor Timo", "Curea David", "Curea Emi", "Curea Marc", "Farcas Mati", "Halip Alvin", "Halip Aser", "Marc David", "Paliuc Alen", "Paliuc Cosmin"] },
+  23: { guests: ["Cojocariu Estera", "Fazacas Mari", "Hopitea Iasmina", "Ibinceanu Cosmina", "Ionesi Alesia", "Neacsu Naomi", "Pantalici Rut", "Sandul Loredana", "Ursachi Bea", "Ursachi Maria"] },
+  24: { guests: ["Antalag Rahela", "Antalag Dani", "Fazacas Adina", "Halip Jessi", "Kurunczi Diana", "Lacatus Cristi", "Lacatus Meli", "Magdici Cornelia", "Magdici Danut", "Maidaniuc Alex"] },
 };
 
-// Build a flat lookup: name -> table number
+// Build a flat lookup: name -> table key
+// Handle duplicate names by storing as "Name (Masa X)"
 const guestLookup = {};
-for (const [tableNum, tableData] of Object.entries(TABLES)) {
+const nameCounts = {};
+
+// First pass: count occurrences
+for (const [tableKey, tableData] of Object.entries(TABLES)) {
   for (const guest of tableData.guests) {
-    guestLookup[guest.toLowerCase()] = parseInt(tableNum);
+    const lower = guest.toLowerCase();
+    nameCounts[lower] = (nameCounts[lower] || 0) + 1;
   }
 }
-const allGuests = Object.values(TABLES).flatMap(t => t.guests).sort();
+
+// Second pass: build lookup with disambiguation
+const allGuests = [];
+for (const [tableKey, tableData] of Object.entries(TABLES)) {
+  for (const guest of tableData.guests) {
+    const lower = guest.toLowerCase();
+    if (nameCounts[lower] > 1) {
+      // Duplicate name - add table info for disambiguation
+      const displayName = `${guest} (Masa ${tableKey})`;
+      guestLookup[displayName.toLowerCase()] = tableKey;
+      allGuests.push(displayName);
+    } else {
+      guestLookup[lower] = tableKey;
+      allGuests.push(guest);
+    }
+  }
+}
+allGuests.sort();
 
 // DOM
 const input = document.getElementById('guestSearch');
@@ -470,7 +500,7 @@ input.addEventListener('input', () => {
     suggestionsEl.classList.remove('active');
     resultArea.innerHTML = `
       <div class="no-match">
-        <div class="no-match-text">No guest found with that name.<br>Please check the spelling and try again.</div>
+        <div class="no-match-text">Nu am găsit acest nume.<br>Verifică scrierea și încearcă din nou.</div>
       </div>`;
     return;
   }
@@ -482,20 +512,22 @@ input.addEventListener('input', () => {
   }
 
   activeSuggestion = -1;
-  suggestionsEl.innerHTML = matches.slice(0, 6).map((g, i) => {
-    const tableNum = guestLookup[g.toLowerCase()];
+  suggestionsEl.innerHTML = matches.slice(0, 8).map((g, i) => {
+    const tableKey = guestLookup[g.toLowerCase()];
+    const tableLabel = tableKey === 'Prezidiu' ? 'Prezidiu' : `Masa ${tableKey}`;
     return `<div class="suggestion-item" data-index="${i}" data-name="${g}">
       ${highlightMatch(g, val)}
-      <span class="suggestion-table">Table ${tableNum}</span>
+      <span class="suggestion-table">${tableLabel}</span>
     </div>`;
   }).join('');
   suggestionsEl.classList.add('active');
 
   suggestionsEl.querySelectorAll('.suggestion-item').forEach(item => {
     item.addEventListener('click', () => {
-      input.value = item.dataset.name;
+      const name = item.dataset.name;
+      input.value = name.replace(/ \(Masa .+\)$/, '');
       suggestionsEl.classList.remove('active');
-      showResult(item.dataset.name);
+      showResult(name);
     });
   });
 });
@@ -528,37 +560,49 @@ function highlightMatch(name, query) {
   return name.slice(0, idx) + '<strong>' + name.slice(idx, idx + query.length) + '</strong>' + name.slice(idx + query.length);
 }
 
-function showResult(guestName) {
-  const tableNum = guestLookup[guestName.toLowerCase()];
-  if (!tableNum) return;
+function showResult(displayName) {
+  const tableKey = guestLookup[displayName.toLowerCase()];
+  if (!tableKey) return;
 
-  const table = TABLES[tableNum];
-  const companions = table.guests.filter(g => g.toLowerCase() !== guestName.toLowerCase());
+  const table = TABLES[tableKey];
+  const baseName = displayName.replace(/ \(Masa .+\)$/, '');
+  const companions = table.guests.filter(g => g !== baseName || (table.guests.filter(x => x === baseName).length > 1));
+  // Better: show all others at the table
+  const others = [];
+  const used = new Set();
+  for (const g of table.guests) {
+    if (g === baseName && !used.has('self')) {
+      used.add('self');
+      continue; // skip self once
+    }
+    others.push(g);
+  }
+
+  const tableLabel = tableKey === 'Prezidiu' ? 'Prezidiu' : tableKey;
+  const isPresidium = tableKey === 'Prezidiu';
 
   resultArea.innerHTML = `
     <div class="result">
       <div class="result-card">
-        <div class="result-guest">${guestName}</div>
+        <div class="result-guest">${baseName}</div>
         <div class="result-divider"></div>
-        <div class="result-table-label">Your Table</div>
-        <div class="result-table-number">${tableNum}</div>
-        <div class="result-table-name">${table.name}</div>
-        <div class="result-companions">
-          <strong>Seated with</strong>
-          ${companions.join(' · ')}
-        </div>
+        <div class="result-table-label">Masa Ta</div>
+        <div class="result-table-number">${isPresidium ? '♥' : tableLabel}</div>
+        ${isPresidium ? '<div class="result-table-name">Prezidiu</div>' : ''}
+        ${others.length > 0 ? `<div class="result-companions">
+          <strong>Împreună cu</strong>
+          ${others.join(' · ')}
+        </div>` : ''}
       </div>
     </div>`;
 }
 
-// Close suggestions on outside click
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.search-wrapper')) {
     suggestionsEl.classList.remove('active');
   }
 });
 
-// Auto-focus
 input.focus();
 </script>
 </body>
